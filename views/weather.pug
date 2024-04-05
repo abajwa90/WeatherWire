@@ -1,0 +1,92 @@
+doctype html
+html(lang="en")
+  head
+    title WeatherWire
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=no")
+    link(rel="stylesheet", href="assets/css/main.css")
+  body(class="is-preload homepage")
+    #page-wrapper
+      // Header
+      #header-wrapper
+        header#header.container
+          // Logo
+          #logo
+            h1
+              a(href="/") 🌦️ WeatherWire
+          // Nav
+          nav#nav
+            ul
+              li.current
+                a(href="/") Home
+              li
+                a(href="/weather") Weather and News
+    style.
+      .card-img-top {
+        height: 200px; // Adjust the height as needed
+        object-fit: cover;
+      }
+    .container
+      form(action="/weather", method="GET")
+        .form-group
+          input.form-control(type="text", id="city", name="city" placeholder="Enter city name")
+        button.btn.btn-primary(type="submit") Get Weather
+
+      if weather !== null
+        div.mt-5
+          h2 Weather Information for #{weather.name}:
+          p Temperature: #{Math.round(weather.main.temp)}°C
+          p Description: #{weather.weather[0].description}
+          p Humidity: #{weather.main.humidity}%
+          p Wind Speed: #{weather.wind.speed} mph
+          if weather.weather[0].icon
+            - var iconCode = weather.weather[0].icon
+            img(src=`https://openweathermap.org/img/wn/${iconCode}@2x.png`, alt="Weather Icon")
+
+      if newsData !== null
+        div.mt-5
+          h2 Top Headlines
+          each article in newsData.articles
+            .card.mb-3.border-primary
+              if article.image
+                img.card-img-top(src=article.image, alt="Article Image", height="600px")
+              .card-body
+                h5.card-title= article.title
+                p.card-text= article.description
+                a.btn.btn-primary(href=article.url, target="_blank") Read more
+
+      if error !== null
+        p.mt-5= error
+
+      script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")
+      #footer-wrapper
+        footer#footer.container
+          .row
+            .col-3.col-6-medium.col-12-small
+              // Contact
+              section.widget.contact.last
+                h3 Contact Us
+                ul
+                  li
+                    a.icon.brands.fa-twitter(href="#")
+                      span.label Twitter
+                  li
+                    a.icon.brands.fa-facebook-f(href="#")
+                      span.label Facebook
+                  li
+                    a.icon.brands.fa-instagram(href="#")
+                      span.label Instagram
+                  li
+                    a.icon.brands.fa-pinterest(href="#")
+                      span.label Pinterest
+                p
+                  | 1234 NW Street 
+                  br
+                  | Toronto, ON 
+                  br
+                  | (800) 555-0000
+          .row
+            .col-12
+              #copyright
+                ul.menu
+                  p © WeatherWire 2024. Made with ❤️ by Ameesa Bajwa.

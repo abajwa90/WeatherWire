@@ -1,0 +1,82 @@
+doctype html
+html(lang="en")
+  head
+    title WeatherWire
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=no")
+    link(rel="stylesheet", href="assets/css/main.css")
+  body(class="is-preload homepage")
+    #page-wrapper
+      // Header
+      #header-wrapper
+        header#header.container
+          // Logo
+          #logo
+            h1
+              a(href="/") 🌦️ WeatherWire
+          // Nav
+          nav#nav
+            ul
+              li.current
+                a(href="/") Home
+              li
+                a(href="/weather") Weather and News
+      // Banner
+      #banner-wrapper
+            .hero
+                hgroup.hero__content
+                    p.hero__desc WeatherWire, where rapid news coverage meets top news stories.
+            .btn-container
+                a(href="/weather")
+                    button Get Weather
+                
+      // Main
+      #main-wrapper
+        .main.box.container
+          .row.gtr-200
+            .col-8.col-12-medium.imp-medium
+              // Content
+              #content
+                section.last
+                  h2 About Us
+                  p
+                    | Welcome to 
+                    strong WeatherWire, 
+                    |your daily destination for the latest weather updates
+                    | seamlessly intertwined with breaking news stories. Stay informed and prepared for the day ahead with our
+                    | comprehensive coverage, delivering real-time forecasts alongside top headlines. Experience the perfect blend of 
+                    | weather insights and current events, all on one convenient platform. Trust WeatherWire to keep you connected to both 
+                    | the forecast and the world around you.
+                  a.button.icon.solid.fa-arrow-circle-right(href="#") Continue Reading
+      // Footer
+      #footer-wrapper
+        footer#footer.container
+          .row
+            .col-3.col-6-medium.col-12-small
+              // Contact
+              section.widget.contact.last
+                h3 Contact Us
+                ul
+                  li
+                    a.icon.brands.fa-twitter(href="#")
+                      span.label Twitter
+                  li
+                    a.icon.brands.fa-facebook-f(href="#")
+                      span.label Facebook
+                  li
+                    a.icon.brands.fa-instagram(href="#")
+                      span.label Instagram
+                  li
+                    a.icon.brands.fa-pinterest(href="#")
+                      span.label Pinterest
+                p
+                  | 1234 NW Street 
+                  br
+                  | Toronto, ON 
+                  br
+                  | (800) 555-0000
+          .row
+            .col-12
+              #copyright
+                ul.menu
+                  p © WeatherWire 2024. Made with ❤️ by Ameesa Bajwa.
