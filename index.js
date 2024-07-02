@@ -1,6 +1,8 @@
 const express = require("express");
 const axios = require("axios");
 const app = express();
+const dotenv = require("dotenv");
+require('dotenv').config();
 
 // Set the view engine to Pug
 app.set("view engine", "pug");
@@ -17,7 +19,7 @@ app.get("/", (req, res) => {
 app.get("/weather", async (req, res) => {
     // Get the city from the query parameters
     const city = req.query.city;
-    const apiKey = "102b69a6e3d877ab38cedc64191a106b";
+    const apiKey = process.env.WEATHER_API_KEY;
   
     // Fetch weather data from the OpenWeatherMap API
     const openWeatherMapUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
