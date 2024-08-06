@@ -50,7 +50,7 @@ app.get("/weather", async (req, res) => {
   
 
 // Start the server and listen on port 3000 or the value of the PORT environment variable
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
